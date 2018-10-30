@@ -1,0 +1,34 @@
+if((topology[i][m[i+1]]!= null)||(topology[i][m[i-1]]!= null)) {
+				System.out.println("achou vizinho");
+			}
+			if((topology[i+1][m[i+1]]!= null)||(topology[i+1][m[i]]!= null)||(topology[i+1][m[i-1]]!= null)) {
+				System.out.println("achou vizinho");
+			}
+			if((topology[i-1][m[i+1]]!= null)||(topology[i-1][m[i]]!= null)||(topology[i-1][m[i-1]]!= null)) {
+				System.out.println("achou vizinho");
+			}
+
+
+private static String[][] topology;
+
+
+File topologyFile;
+		BufferedReader br = null;
+		
+		try {
+			topologyFile = new File("topology.txt");
+			br = new BufferedReader(new FileReader(topologyFile));
+			topology = new String[4][4];
+			
+			String line;
+			for(int i = 0; i <= 3; i++){
+				line = br.readLine().trim();
+				String[] connections = line.split(" ");
+				for(int j = 0; j < connections.length; j++){
+					topology[i][j]=connections[j];
+					System.out.println(topology[i][j]);
+				}
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
