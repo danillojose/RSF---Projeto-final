@@ -1,21 +1,24 @@
 package view;
 
+import java.io.IOException;
+
 public final class Neighbords {
 
-    public static void calculateNeighbors(String[][] matrix) {
-
+    public static void calculateNeighbors(String[][] matrix) throws IOException {
+    	Printer ConsoleFile = new Printer(Common.logFile);
+    	
         if (matrix == null) {
             throw new NullPointerException("A matriz de entrada não pode ser nula.");
         }
         
-        System.out.println("Vizinhança dos nós (NodeX --> Vizinhos)");
+        ConsoleFile.println("Vizinhança dos nós (NodeX --> Vizinhos)");
         
         for (int currentRow = 0, 
                  rowCount = matrix.length, 
                  columnCount = matrix[0].length; currentRow < rowCount; currentRow++) {
             for (int currentColumn = 0; currentColumn < columnCount; currentColumn++) {
                 if(matrix[currentRow][currentColumn]!= null) {
-	            	System.out.println(matrix[currentRow][currentColumn] 
+	            	ConsoleFile.println(matrix[currentRow][currentColumn] 
 	                                   + " --> " 
 	                                   + collectNeighbors(matrix, rowCount, columnCount, currentRow, currentColumn));
             	}
