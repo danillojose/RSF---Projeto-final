@@ -1,3 +1,8 @@
+/**
+ * Classe Printer
+ * Essa classe implementa um método que atribui tudo que for 
+ * impresso no console ao arquivo de log.
+ */
 package view;
 import java.io.File;
 import java.io.FileWriter;
